@@ -20,20 +20,20 @@ pipeline {
 				bat("mvn snyk:test -fn")
 			}
         } 
-		stage('RunDASTUsingZAP') {
-            steps {		
-				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
-		  }
-        } 
+// 		stage('RunDASTUsingZAP') {
+//             steps {		
+// 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
+// 		  }
+//         } 
 	    		stage('RunDockerScan') {
             steps {		
 				bat("docker scan --file Dockerfile openjdk:8-slim")
 		  }
         } 
-	    		stage('RunIACUsingBridgecrew') {
-            steps {		
-				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
-		  }
-        } 
+// 	    		stage('RunIACUsingBridgecrew') {
+//             steps {		
+// 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
+// 		  }
+//         } 
     }
 }
