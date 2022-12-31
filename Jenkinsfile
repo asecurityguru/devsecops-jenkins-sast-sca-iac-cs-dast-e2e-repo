@@ -3,10 +3,6 @@ pipeline {
 	tools { 
         maven 'Maven_3_8_5'  
     }
-	 docker {
-            image 'kennethreitz/pipenv:latest'
-            args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
-        }
 
     stages {
 //        stage('CompileandRunSonarAnalysis') {
@@ -38,7 +34,9 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url: 'https://github.com/asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo.git']]])
                 script { 
-                    sh """pipenv install
+                    sh """
+		    docker pull kennethreitz/pipenv:latest
+		    pipenv install
                     pipenv run pip install bridgecrew
                     pipenv run bridgecrew --directory . --bc-api-key 0e39afd7-c394-4210-86ad-49a6857a885a --repo-id asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo"""
                 }
