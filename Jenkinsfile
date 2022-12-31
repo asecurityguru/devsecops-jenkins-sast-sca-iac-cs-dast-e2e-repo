@@ -3,6 +3,10 @@ pipeline {
 	tools { 
         maven 'Maven_3_8_5'  
     }
+	 docker {
+            image 'kennethreitz/pipenv:latest'
+            args '-u root --privileged -v /var/run/docker.sock:/var/run/docker.sock'
+        }
 
     stages {
         stage('CompileandRunSonarAnalysis') {
@@ -25,15 +29,20 @@ pipeline {
 // 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
 // 		  }
 //         } 
-	    		stage('RunDockerScan') {
-            steps {		
-				bat("docker scan --file Dockerfile openjdk:8-slim")
-		  }
-        } 
-// 	    		stage('RunIACUsingBridgecrew') {
+// 	    		stage('RunDockerScan') {
 //             steps {		
-// 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
+// 				bat("docker scan --file Dockerfile openjdk:8-slim")
 // 		  }
 //         } 
+	    		 stage('test') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url: 'https://github.com/asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo.git']]])
+                script { 
+                    sh """pipenv install
+                    pipenv run pip install bridgecrew
+                    pipenv run bridgecrew --directory . --bc-api-key 0e39afd7-c394-4210-86ad-49a6857a885a --repo-id asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo"""
+                }
+            }
+        }
     }
 }
