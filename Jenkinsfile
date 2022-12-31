@@ -9,7 +9,7 @@ pipeline {
             steps {	
 		    //withCredentials([string(credentialsId: 'sonarTokenId', variable: 'SONAR_TOKEN')]) {
 		//	bat("SET result=curl -s -u sqp_1cc89897a86cfbe98639d6847c6c5434ec2bd592: https://sonarcloud.io/api/qualitygates/project_status?projectKey=test")	
-		      sh '''#!/bin/bash
+		      bat '''#!/bin/bash
 
                     echo "Hello from bash"
                     echo "Who I'm $SHELL"
