@@ -32,16 +32,10 @@ pipeline {
 //         } 
 	    		 stage('test') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo.git']]])
-                script { 
-                    bat """
-		    docker pull kennethreitz/pipenv:latest
-		    pipenv install
-                    pipenv run pip install bridgecrew
-                    pipenv run bridgecrew --directory . --bc-api-key 0e39afd7-c394-4210-86ad-49a6857a885a --repo-id asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo"""
+              checkov --file main.tf
                 }
             }
-        }
+        
 	
     }
 }
