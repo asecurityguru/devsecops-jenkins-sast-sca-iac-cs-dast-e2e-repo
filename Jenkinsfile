@@ -34,7 +34,7 @@ pipeline {
          } 
 	    		 stage('test') {
             steps {
-              bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\checkov --file main.tf")
+              bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\checkov --file main.tf")
                 }
             }
         
