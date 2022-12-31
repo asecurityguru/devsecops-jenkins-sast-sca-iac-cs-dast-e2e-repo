@@ -27,7 +27,7 @@ pipeline {
 //         } 
  	    		stage('RunDockerScan') {
              steps {		
-	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3 install --upgrade pip && pip3 install --upgrade setuptools && pip3pip3 install checkov")
+	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3 install --upgrade pip && pip3 install --upgrade setuptools && pip3 install checkov")
 //	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3pip3 install checkov")
 // 				bat("docker scan --file Dockerfile openjdk:8-slim")
  		  }
