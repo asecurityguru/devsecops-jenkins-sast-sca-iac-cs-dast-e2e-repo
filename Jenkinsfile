@@ -2,7 +2,7 @@ pipeline {
     agent any
 	tools { 
         maven 'Maven_3_8_5'  
-        python 'python21'
+     //   python 'python21'
     }
 
     stages {
@@ -35,9 +35,9 @@ pipeline {
 //         } 
 	    		 stage('test') {
             steps {
-		    withEnv(["python"]) {
+		  //  withEnv(["python"]) {
               bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\checkov --file main.tf")
-                }
+              //  }
 	    }
             }
         
