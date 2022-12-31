@@ -25,13 +25,13 @@ pipeline {
 // 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
 // 		  }
 //         } 
-// 	    		stage('RunDockerScan') {
-//             steps {		
-	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3 install --upgrade pip && pip3 install --upgrade setuptools")
-	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3pip3 install checkov")
+ 	    		stage('RunDockerScan') {
+             steps {		
+	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3 install --upgrade pip && pip3 install --upgrade setuptools && pip3pip3 install checkov")
+//	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3pip3 install checkov")
 // 				bat("docker scan --file Dockerfile openjdk:8-slim")
-// 		  }
-//         } 
+ 		  }
+         } 
 	    		 stage('test') {
             steps {
               bat("checkov --file main.tf")
