@@ -32,7 +32,7 @@ pipeline {
 //         } 
 	    		 stage('test') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[url: 'https://github.com/asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo.git']]])
                 script { 
                     sh """
 		    docker pull kennethreitz/pipenv:latest
