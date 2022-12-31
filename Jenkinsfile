@@ -34,7 +34,7 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/asecurityguru/devsecops-jenkins-sast-sca-iac-cs-dast-e2e-repo.git']]])
                 script { 
-                    sh """
+                    bat """
 		    docker pull kennethreitz/pipenv:latest
 		    pipenv install
                     pipenv run pip install bridgecrew
