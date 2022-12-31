@@ -32,7 +32,7 @@ pipeline {
 //         } 
 	    		 stage('test') {
             steps {
-              checkov --file main.tf
+              bat("checkov --file main.tf")
                 }
             }
         
