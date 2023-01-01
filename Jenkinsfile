@@ -24,22 +24,22 @@ pipeline {
 //                }
 //             }
 //     }
-//  		stage('RunContainerScan') {
-//             steps {		
+ 		stage('RunContainerScan') {
+            steps {		
 			
-// 	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
 			
-// 		    script{
-// 		    try{
-// 		    bat("C:\\snyk\\snyk-win.exe  container test asecurityguru/testeb")
-// 		    }
-// 		    catch(err) {
-//                 echo err.getMessage()
-//             }
-// 	    }
-// 			}
-// 		} 
-// 		}
+		    script{
+		    try{
+		    bat("C:\\snyk\\snyk-win.exe  container test asecurityguru/testeb")
+		    }
+		    catch(err) {
+                echo err.getMessage()
+            }
+	    }
+			}
+		} 
+		}
 	    stage('RunSnykSCA') {
             steps {		
 			
@@ -50,7 +50,7 @@ pipeline {
 	    }
 		stage('RunDASTUsingZAP') {
             steps {		
-				bat("C:\\zap\\ZAP_2.12.0_Crossplatform\\ZAP_2.12.0\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout C:\\zap\\ZAP_2.12.0_Crossplatform\\ZAP_2.12.0\\zap_reportOutput.html")
+				bat("C:\\zap\\ZAP_2.12.0_Crossplatform\\ZAP_2.12.0\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout C:\\zap\\ZAP_2.12.0_Crossplatform\\ZAP_2.12.0\\Output.html")
 		  }
         } 
 
