@@ -17,8 +17,10 @@ pipeline {
 //         } 
 // 		stage('RunSCAAnalysisUsingSnyk') {
 //             steps {		
-// 			//SNYK_TOKEN environment variable created on windows
+// 			
+	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
 // 				bat("mvn snyk:test -fn")
+	    }
 // 			}
 //         } 
 // 		stage('RunDASTUsingZAP') {
@@ -26,13 +28,13 @@ pipeline {
 // 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
 // 		  }
 //         } 
-	    		stage('RunDockerScan') {
-            steps {		
-	// withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
-	    bat("C:\\docker\\docker-scan.exe scan openjdk:8-slim")
-	// }		
-		  }
-        } 
+// 	    		stage('RunDockerScan') {
+//             steps {		
+// 	// withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
+// 	    bat("C:\\docker\\docker-scan.exe scan openjdk:8-slim")
+// 	// }		
+// 		  }
+//         } 
 // 	    		 stage('checkov') {
 //             steps {
 // 		  //  withEnv(["python"]) {
