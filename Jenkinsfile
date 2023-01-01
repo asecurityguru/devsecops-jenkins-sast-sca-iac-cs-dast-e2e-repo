@@ -33,12 +33,20 @@ pipeline {
 // 				bat("docker scan --file Dockerfile openjdk:8-slim")
 // 		  }
 //         } 
-	    		 stage('test') {
+// 	    		 stage('checkov') {
+//             steps {
+// 		  //  withEnv(["python"]) {
+//               //bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\checkov --file main.tf")
+// 		    bat("checkov -s -f main.tf")
+//               //  }
+// 	    }
+//             }
+	     		 stage('fod') {
             steps {
-		  //  withEnv(["python"]) {
-              //bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\checkov --file main.tf")
-		    bat("checkov -s -f main.tf")
-              //  }
+		
+            
+		    bat("fodStaticAssessment applicationName: '', applicationType: '', assessmentType: '', attributes: '', auditPreference: '', bsiToken: '', businessCriticality: '', entitlementId: '', entitlementPreference: '', frequencyId: '', inProgressBuildResultType: 'FailBuild', inProgressScanActionType: 'Queue', isMicroservice: false, languageLevel: '', microserviceName: '', openSourceScan: '', overrideGlobalConfig: false, personalAccessToken: '', releaseId: '197993', releaseName: '', remediationScanPreferenceType: 'NonRemediationScanOnly', scanCentral: 'Maven', scanCentralBuildCommand: '', scanCentralBuildFile: '', scanCentralBuildToolVersion: '', scanCentralIncludeTests: '', scanCentralRequirementFile: '', scanCentralSkipBuild: 'true', scanCentralVirtualEnv: '', sdlcStatus: '', srcLocation: 'src', technologyStack: '', tenantId: '', username: ''")
+           
 	    }
             }
         
