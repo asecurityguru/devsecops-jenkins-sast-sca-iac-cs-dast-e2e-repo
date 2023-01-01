@@ -24,22 +24,22 @@ pipeline {
 //                }
 //             }
 //     }
- 		stage('RunContainerScan') {
-            steps {		
+//  		stage('RunContainerScan') {
+//             steps {		
 			
-	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+// 	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
 			
-		    script{
-		    try{
-		    bat("C:\\snyk\\snyk-win.exe  container test asecurityguru/testeb || true")
-		    }
-		    catch(err) {
-                echo err.getMessage()
-            }
-	    }
-			}
-		} 
-		}
+// 		    script{
+// 		    try{
+// 		    bat("C:\\snyk\\snyk-win.exe  container test asecurityguru/testeb")
+// 		    }
+// 		    catch(err) {
+//                 echo err.getMessage()
+//             }
+// 	    }
+// 			}
+// 		} 
+// 		}
 	    stage('RunSnykSCA') {
             steps {		
 			
