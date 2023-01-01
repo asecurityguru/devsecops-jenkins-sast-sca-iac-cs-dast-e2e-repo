@@ -29,7 +29,7 @@ pipeline {
 	    		stage('RunDockerScan') {
             steps {		
 	 withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
-	    bat("C:\\Program Files\\Docker\\cli-plugins\\docker-scan.exe scan openjdk:8-slim")
+	    bat("C:\\Program^ Files\\Docker\\cli-plugins\\docker-scan.exe scan openjdk:8-slim")
 	 }		
 		  }
         } 
