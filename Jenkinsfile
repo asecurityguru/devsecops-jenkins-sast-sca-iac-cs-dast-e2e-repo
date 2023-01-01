@@ -15,14 +15,14 @@ pipeline {
 // 		    //}
 // 			}
 //         } 
-// 		stage('RunSCAAnalysisUsingSnyk') {
-//             steps {		
-// 			
+ 		stage('RunSCAAnalysisUsingSnyk') {
+            steps {		
+			
 	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-// 				bat("mvn snyk:test -fn")
+				bat("mvn snyk:test -fn")
 	    }
-// 			}
-//         } 
+			}
+		} 
 // 		stage('RunDASTUsingZAP') {
 //             steps {		
 // 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
