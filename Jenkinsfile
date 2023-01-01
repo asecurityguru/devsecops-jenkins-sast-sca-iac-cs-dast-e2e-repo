@@ -19,7 +19,8 @@ pipeline {
             steps {		
 			
 	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-				bat("mvn snyk:test -fn")
+				//bat("mvn snyk:test -fn")
+		    bat("snyk container test debian")
 	    }
 			}
 		} 
