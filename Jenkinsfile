@@ -29,7 +29,7 @@ pipeline {
 	    		stage('RunDockerScan') {
             steps {		
 	 
-	    bat("docker --version")
+	    bat("docker scan openjdk:8-slim")
 				
 		  }
         } 
