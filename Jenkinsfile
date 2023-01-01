@@ -36,7 +36,8 @@ pipeline {
 	    		 stage('test') {
             steps {
 		  //  withEnv(["python"]) {
-              bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\checkov --file main.tf")
+              //bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\checkov --file main.tf")
+		    bat("checkov --file main.tf")
               //  }
 	    }
             }
