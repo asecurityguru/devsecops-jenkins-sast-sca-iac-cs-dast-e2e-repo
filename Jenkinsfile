@@ -15,12 +15,21 @@ pipeline {
 // 		    //}
 // 			}
 //         } 
+	    stage('Build') { 
+            steps { 
+               withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
+                 script{
+                 app =  docker.build("asecurityguru/testeb")
+                 }
+               }
+            }
+    }
  		stage('RunSCAAnalysisUsingSnyk') {
             steps {		
 			
 	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
 				//bat("mvn snyk:test -fn")
-		    bat("C:\\snyk\\snyk-win.exe   container test debian")
+		    bat("C:\\snyk\\snyk-win.exe   container test asecurityguru:testeb --file=dockerfile")
 	    }
 			}
 		} 
