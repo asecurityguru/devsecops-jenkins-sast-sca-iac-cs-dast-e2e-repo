@@ -20,7 +20,7 @@ pipeline {
 			
 	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
 				//bat("mvn snyk:test -fn")
-		    bat("snyk container test debian")
+		    bat("C:\\snyk\\snyk-win.exe   container test debian")
 	    }
 			}
 		} 
