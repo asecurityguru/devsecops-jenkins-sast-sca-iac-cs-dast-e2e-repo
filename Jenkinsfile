@@ -26,13 +26,13 @@ pipeline {
 // 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
 // 		  }
 //         } 
-// 	    		stage('RunDockerScan') {
-//             steps {		
-//	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3 install --upgrade pip && C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3 install --upgrade setuptools && C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3 install checkov")
-//	    bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\pip3pip3 install checkov")
-// 				bat("docker scan --file Dockerfile openjdk:8-slim")
-// 		  }
-//         } 
+	    		stage('RunDockerScan') {
+            steps {		
+	 
+	    bat("docker scan openjdk:8-slim")
+				
+		  }
+        } 
 // 	    		 stage('checkov') {
 //             steps {
 // 		  //  withEnv(["python"]) {
@@ -41,14 +41,7 @@ pipeline {
 //               //  }
 // 	    }
 //             }
-	     		 stage('fod') {
-            steps {
-		
-            
-		    bat("fodStaticAssessment applicationName: '', applicationType: '', assessmentType: '', attributes: '', auditPreference: '', bsiToken: '', businessCriticality: '', entitlementId: '', entitlementPreference: '', frequencyId: '', inProgressBuildResultType: 'FailBuild', inProgressScanActionType: 'Queue', isMicroservice: false, languageLevel: '', microserviceName: '', openSourceScan: '', overrideGlobalConfig: false, personalAccessToken: '', releaseId: '197993', releaseName: '', remediationScanPreferenceType: 'NonRemediationScanOnly', scanCentral: 'Maven', scanCentralBuildCommand: '', scanCentralBuildFile: '', scanCentralBuildToolVersion: '', scanCentralIncludeTests: '', scanCentralRequirementFile: '', scanCentralSkipBuild: 'true', scanCentralVirtualEnv: '', sdlcStatus: '', srcLocation: 'src', technologyStack: '', tenantId: '', username: ''")
-           
-	    }
-            }
+	
         
 	
     }
