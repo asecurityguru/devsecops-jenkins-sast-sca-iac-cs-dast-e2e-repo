@@ -28,7 +28,7 @@ pipeline {
 //         } 
 	    		stage('RunDockerScan') {
             steps {		
-	 withCredentials([string(credentialsId: 'dockerlogin']) {
+	 withCredentials('dockerlogin') {
 	    bat("docker scan openjdk:8-slim")
 	 }		
 		  }
