@@ -29,6 +29,7 @@ pipeline {
 			
 	    withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
 				//bat("mvn snyk:test -fn")
+		    script{
 		    try{
 		    bat("C:\\snyk\\snyk-win.exe  container test asecurityguru/testeb || true")
 		    }
@@ -38,6 +39,7 @@ pipeline {
 	    }
 			}
 		} 
+		}
 // 		stage('RunDASTUsingZAP') {
 //             steps {		
 // 				//bat("D:\\software\\ZAP\\zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout D:\\software\\ZAP\\zap_reportOutput.html")
