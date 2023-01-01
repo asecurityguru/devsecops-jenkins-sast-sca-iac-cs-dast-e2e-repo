@@ -37,7 +37,7 @@ pipeline {
             steps {
 		  //  withEnv(["python"]) {
               //bat("C:\\Users\\asecu\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\checkov --file main.tf")
-		    bat("checkov -f main.tf")
+		    bat("checkov -s -f main.tf")
               //  }
 	    }
             }
