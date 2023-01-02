@@ -23,9 +23,7 @@ pipeline {
     }
     stage('RunContainerScan') {
       steps {
-
         withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-
           script {
             try {
               bat("C:\\snyk\\snyk-win.exe  container test asecurityguru/testeb")
@@ -38,7 +36,6 @@ pipeline {
     }
     stage('RunSnykSCA') {
       steps {
-
         withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
           bat("mvn snyk:test -fn")
         }
@@ -52,9 +49,7 @@ pipeline {
 
     stage('checkov') {
       steps {
-
         bat("checkov -s -f main.tf")
-
       }
     }
 
