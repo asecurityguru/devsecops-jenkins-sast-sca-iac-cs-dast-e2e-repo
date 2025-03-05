@@ -12,7 +12,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<easybuggy-port>8080</easybuggy-port>
 		<!-- default properties (JDK 1.7 or earlier) -->
-		<jvm.args.perm.size>-XX:MaxPermSize=128m</jvm.args.perm.size>
 		<jvm.args.gc.log.path>-Xloggc:logs/gc.log</jvm.args.gc.log.path>
 		<jvm.args.print.heap.at.gc>-XX:+PrintHeapAtGC</jvm.args.print.heap.at.gc>
 		<jvm.args.print.gc.details>-XX:+PrintGCDetails</jvm.args.print.gc.details>
@@ -198,7 +197,7 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<mkdir dir="logs" />
 								<copy file="${basedir}/src/main/resources/messages_en.properties"
 									tofile="${project.build.outputDirectory}/messages.properties" />
@@ -206,7 +205,7 @@
 									tofile="${project.build.outputDirectory}/indexpage.properties" />
 								<delete
 									file="${project.build.outputDirectory}/org/t246osslab/easybuggy/core/utils/DeleteClassWhileMavenBuild.class" />
-							</tasks>
+							<target>
 						</configuration>
 					</execution>
 				</executions>
